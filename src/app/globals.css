@@ -1,26 +1,54 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-sans:  var(--font-hanken), system-ui, sans-serif;
+  --font-serif: var(--font-spectral), Georgia, serif;
+
+  --color-forest-50:  #f3f7f1;
+  --color-forest-100: #e4efe3;
+  --color-forest-200: #cfe0d2;
+  --color-forest-300: #a9c4b1;
+  --color-forest-500: #5f7d68;
+  --color-forest-700: #2f4f3e;
+  --color-forest-800: #1f3a2b;
+  --color-forest-900: #1a2b22;
+
+  --color-sage-300: #9bb4a3;
+  --color-sage-400: #7a9485;
+  --color-sage-500: #5e7a64;
+  --color-sage-600: #42564a;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  html { scroll-behavior: smooth; }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  ::selection { background: #cfe0d2; color: #20302a; }
+
+  a { text-decoration: none; color: inherit; }
+
+  input::placeholder,
+  textarea::placeholder { color: #9aa89e; }
+
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: none;
+    border-color: #2f4f3e !important;
+    box-shadow: 0 0 0 3px rgba(47, 79, 62, 0.1) !important;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
 }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-float      { animation: floatY 7s ease-in-out infinite; }
+.animate-float-slow { animation: floatY 9s ease-in-out infinite 1.5s; }
+.animate-fade-up    { animation: fadeUp 0.9s ease both; }
+.animate-fade-up-late { animation: fadeUp 1.1s ease both; }
