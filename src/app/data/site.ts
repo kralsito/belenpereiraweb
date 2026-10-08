@@ -3,6 +3,7 @@ import type { SiteConfig } from "../types";
 export const siteConfig: SiteConfig = {
   // Set to false to take the site out of maintenance and show the full homepage.
   maintenanceMode: true,
+  maintenanceEmail: 'pereira.maria.belen@gmail.com',
   therapistName: 'María Belen Pereira',
   heroTagline: 'Space to heal, grow, and feel like yourself again.',
   email: 'hello@belenpereira.com',

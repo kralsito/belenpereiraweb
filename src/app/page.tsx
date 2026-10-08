@@ -14,10 +14,10 @@ export const metadata: Metadata = siteConfig.maintenanceMode
   : {};
 
 export default function Home() {
-  const { maintenanceMode, therapistName, heroTagline, email, phone, address, hours, credentials, services } = siteConfig;
+  const { maintenanceMode, maintenanceEmail, therapistName, heroTagline, email, phone, address, hours, credentials, services } = siteConfig;
 
   if (maintenanceMode) {
-    return <Maintenance name={therapistName} email={email} />;
+    return <Maintenance name={therapistName} email={maintenanceEmail} />;
   }
 
   return (
