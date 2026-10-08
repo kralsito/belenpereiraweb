@@ -4,10 +4,21 @@ import About from './components/about';
 import Services from './components/services';
 import Contact from './components/contact';
 import Footer from './components/footer';
+import Maintenance from './components/maintenance';
 import { siteConfig } from './data/site';
+import type { Metadata } from 'next';
+
+// Keep search engines from indexing the placeholder while in maintenance.
+export const metadata: Metadata = siteConfig.maintenanceMode
+  ? { robots: { index: false, follow: false } }
+  : {};
 
 export default function Home() {
-  const { therapistName, heroTagline, email, phone, address, hours, credentials, services } = siteConfig;
+  const { maintenanceMode, therapistName, heroTagline, email, phone, address, hours, credentials, services } = siteConfig;
+
+  if (maintenanceMode) {
+    return <Maintenance name={therapistName} email={email} />;
+  }
 
   return (
     <div
