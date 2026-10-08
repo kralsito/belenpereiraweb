@@ -25,6 +25,8 @@ export interface FormErrors {
 }
 
 export interface SiteConfig {
+  maintenanceMode: boolean;
+  maintenanceEmail: string;
   therapistName: string;
   heroTagline: string;
   email: string;
